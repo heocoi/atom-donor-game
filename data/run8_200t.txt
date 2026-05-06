@@ -1,0 +1,52 @@
+=== Donor Game World ===
+ticks=200 agents=20 genes=qwen3:0.6b, qwen3:8b, llama3.2:3b
+cost=4 benefit=5 reproduce@80
+
+─── Condition A: Single LLM (no memory, no evolution) ───
+  tick   40 | coop 100% | pop  29
+  tick   80 | coop 100% | pop  36
+  tick  120 | coop 100% | pop  55
+  tick  160 | coop 100% | pop  74
+  tick  200 | coop 100% | pop  93
+
+  avg_coop (last 20t) : 99.3%
+  mean_energy         : 45.7
+  population          : 93
+  max_generation      : G6
+  S1 / S2 ratio       : 0/4909 (0% S1)
+  gene distribution   : 0.6b ×93
+
+─── Condition B: LLM Society (memory, no Hebbian) ───
+  tick   40 | coop 94% | pop  31
+  tick   80 | coop 97% | pop  35
+  tick  120 | coop 100% | pop  49
+  tick  160 | coop 97% | pop  60
+  tick  200 | coop 100% | pop  85
+
+  avg_coop (last 20t) : 97.6%
+  mean_energy         : 42.0
+  population          : 85
+  max_generation      : G7
+  S1 / S2 ratio       : 0/5368 (0% S1)
+  gene distribution   : 3b ×48, 0.6b ×20, 8b ×17
+
+─── Condition C: Atom Hybrid (S1 + S2 + evolution) ───
+  tick   40 | coop 84% | pop  18
+  tick   80 | coop 88% | pop  16
+  tick  120 | coop 100% | pop  17
+  tick  160 | coop 100% | pop  20
+  tick  200 | coop 100% | pop  27
+
+  avg_coop (last 20t) : 100.0%
+  mean_energy         : 43.7
+  population          : 27
+  max_generation      : G6
+  S1 / S2 ratio       : 1589/172 (90% S1)
+  gene distribution   : 3b ×2, 0.6b ×14, 8b ×11
+
+=== Summary ===
+Condition                 Coop%   MeanEnergy      Pop   MaxGen
+────────────────────────────────────────────────────────────
+A: Single LLM             99.3%         45.7       93        6
+B: LLM Society            97.6%         42.0       85        7
+C: Atom Hybrid           100.0%         43.7       27        6

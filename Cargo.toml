@@ -1,0 +1,20 @@
+[package]
+name = "atom-donor-game"
+version = "0.1.0"
+edition = "2021"
+description = "Atom Hybrid: Hebbian S1 + lazy LLM S2 agents in the iterated Donor Game"
+license = "MIT"
+
+[[bin]]
+name = "donor_world"
+path = "src/donor_bench.rs"
+
+[dependencies]
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ureq = { version = "2", features = ["json"] }
+
+[profile.release]
+opt-level = 3
+lto = true

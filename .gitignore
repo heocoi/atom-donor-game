@@ -1,0 +1,7 @@
+target/
+Cargo.lock
+*.swp
+.DS_Store
+paper/screenshots/
+paper/overleaf_bundle/
+paper/overleaf_atom_hybrid.zip
