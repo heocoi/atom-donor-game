@@ -234,7 +234,7 @@ Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023)
 
 # Reproducibility
 
-**Code:** `rust_atom/src/donor_agent.rs` and `rust_atom/src/donor_bench.rs`. The architecture used in Runs 6 through 9 is at commit `dcb5f38`; the repository is currently private and will be released alongside the preprint.
+**Code:** https://github.com/heocoi/atom-donor-game (`src/donor_agent.rs` and `src/donor_bench.rs`). Raw stdout from the four reported runs is in `data/run{6,7,8,9}_*.txt`.
 
 **Run command:**
 ```
@@ -282,4 +282,4 @@ During development, six iterations were required to reach the working architectu
 
 We document these failures because the surface symptoms ("cooperation collapses in C") were nearly identical across iterations, but the root causes were distinct. Each iteration would have looked like a successful publication of "this approach doesn't work" without the deeper diagnosis.
 
-*Independent research, no funding. Code will be released with the preprint. Comments welcome.*
+*Independent research, no funding. Code at https://github.com/heocoi/atom-donor-game. Comments welcome.*
