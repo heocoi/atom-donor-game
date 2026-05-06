@@ -100,7 +100,7 @@ impl DonorWorld {
                     // ri directly observes di as cooperator
                     self.agents[ri].observe_action(&did, true);
                     // Gossip: broadcast di's donation (di is the cooperator)
-                    if rng.gen::<f32>() < 0.8 {
+                    if rng.r#gen::<f32>() < 0.8 {
                         let did2 = did.clone();
                         for (idx, agent) in self.agents.iter_mut().enumerate() {
                             if idx != ri {
@@ -113,7 +113,7 @@ impl DonorWorld {
                     self.agents[di].defected += 1;
                     let did = self.agents[di].id.clone();
                     // Gossip: broadcast di's defection (di is the defector)
-                    if rng.gen::<f32>() < 0.8 {
+                    if rng.r#gen::<f32>() < 0.8 {
                         let did2 = did.clone();
                         for (idx, agent) in self.agents.iter_mut().enumerate() {
                             if idx != di { agent.observe_action(&did2, false); }

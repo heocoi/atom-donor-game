@@ -4,9 +4,9 @@ Companion code and paper for **Atom Hybrid: Emergent Cooperation via Hebbian Lea
 
 A multi-agent simulation of the iterated Donor Game comparing three architectures:
 
-- **A: Single LLM** — stateless control, all agents share one LLM
-- **B: LLM Society** — per-agent LLM with private reputation memory
-- **C: Atom Hybrid** — Hebbian S1 (fast) + lazy LLM S2 (slow), gossip-based reputation
+- **A: Single LLM**: stateless control, all agents share one LLM
+- **B: LLM Society**: per-agent LLM with private reputation memory
+- **C: Atom Hybrid**: Hebbian S1 (fast) + lazy LLM S2 (slow), gossip-based reputation
 
 ## Result
 

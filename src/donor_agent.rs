@@ -47,9 +47,9 @@ impl DonorAgent {
     pub fn new(id: String, gene: String) -> Self {
         let mut rng = rand::thread_rng();
         let mut w = [
-            0.35 + rng.gen::<f32>() * 0.1,
-            0.45 + rng.gen::<f32>() * 0.1,
-            0.10 + rng.gen::<f32>() * 0.1,
+            0.35 + rng.r#gen::<f32>() * 0.1,
+            0.45 + rng.r#gen::<f32>() * 0.1,
+            0.10 + rng.r#gen::<f32>() * 0.1,
         ];
         normalize_weights(&mut w);
         DonorAgent {
