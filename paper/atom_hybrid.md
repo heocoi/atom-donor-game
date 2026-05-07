@@ -6,7 +6,7 @@ date: "May 2026"
 
 ## Abstract
 
-Multi-agent systems built on Large Language Models (LLMs) typically require an LLM inference per decision per agent, leading to costs that scale O(n·T) for n agents over T timesteps. We present **Atom Hybrid**, an architecture that combines a fast Hebbian "System 1" (S1) with a lazy LLM-based "System 2" (S2), using gossip-based reputation following the image scoring framework of Nowak and Sigmund (1998). In the iterated Donor Game with adversarial defector minorities, three conditions are compared: (A) stateless single-LLM, (B) per-agent LLM with reputation memory, and (C) Atom Hybrid. Across N=3 replications, Atom Hybrid converges to 100% cooperation by tick ~120 (σ=0 across runs) while reducing LLM calls by 97.2% ± 2.0% relative to per-agent LLM. The S1 Hebbian weights internalize learned cooperation norms; once internalized, agents act without LLM consultation. We argue this hybrid architecture is a viable path toward scalable multi-agent AI systems where LLM inference is reserved for genuinely novel situations.
+Multi-agent systems built on Large Language Models (LLMs) typically require an LLM inference per decision per agent, leading to costs that scale O(n·T) for n agents over T timesteps. We present **Atom Hybrid**, an architecture that combines a fast Hebbian "System 1" (S1) with a lazy LLM-based "System 2" (S2), using gossip-based reputation following the image scoring framework of Nowak and Sigmund (1998). In the iterated Donor Game with adversarial defector minorities, three conditions are compared: (A) stateless single-LLM, (B) per-agent LLM with reputation memory, and (C) Atom Hybrid. Across N=3 replications, Atom Hybrid converges to 100% cooperation by tick ~120 (σ=0 across runs) while reducing LLM calls by 97.2% ± 2.0% compared to the per-agent LLM baseline. The S1 Hebbian weights internalize learned cooperation norms; once internalized, agents act without LLM consultation. We argue this hybrid architecture is a viable path toward scalable multi-agent AI systems where LLM inference is reserved for genuinely novel situations.
 
 ---
 
@@ -55,16 +55,21 @@ Following the standard iterated Donor Game:
 
 **Condition B: LLM Society (memory baseline).** Each agent has a private reputation memory. The LLM is prompted with energy, recipient_rep, and world_coop. Agents are otherwise stateless across calls.
 
-**Condition C: Atom Hybrid (proposed).** Each agent has S1 Hebbian weights and reputation. The decision flow:
+**Condition C: Atom Hybrid (proposed).** Each agent has S1 Hebbian weights and reputation. The decision and per-tick flow:
 
 ```
+On each tick (per agent):
+  age += 1
+  energy -= 1                     # survival cost
+  if s2_cooldown > 0: s2_cooldown -= 1
+
 On decision (donor d, recipient r):
   s1_action, conf = s1_decide(r.id)
   if conf >= 0.65 OR s2_cooldown > 0:
-    use s1_action               # fast path
+    use s1_action                 # fast path: confident or in cooldown
   else:
     s2_action = LLM(prompt_with_rep)
-    s2_cooldown = 5             # don't re-query for 5 ticks
+    s2_cooldown = 5               # block S2 for the next 5 ticks
     use s2_action
 ```
 
@@ -139,9 +144,7 @@ Cooperation reaches 100% in all replications by tick ~120, with zero variance on
 
 Figure 1 shows cooperation trajectories for all three conditions across the three replications. Conditions A and B remain near-flat at 95-100% throughout. Condition C starts in the 60-85% range and converges to 100% by tick 120 in every run.
 
-![Cooperation trajectories across N=3 replications. Condition C (red) starts below A and B but converges to 100% cooperation by tick 120 in all three runs. After convergence, C remains at or near 100% for the rest of the run.](figures/cooperation_trajectory.png)
-
-**Figure 1.** *Cooperation rate vs. tick for the three conditions across three replications. Vertical dotted line marks tick 120, the empirical convergence point.*
+![Cooperation rate vs. tick for the three conditions across three replications. Condition C (red) starts below A and B but converges to 100% cooperation by tick 120 in all three runs. After convergence, C remains at or near 100% for the rest of the run. Vertical dotted line marks tick 120, the empirical convergence point.](figures/cooperation_trajectory.png)
 
 Checkpoint values (every 60 ticks for the 300t run, every 40 ticks for 200t runs):
 
@@ -151,7 +154,7 @@ Run 8  (ticks 40/80/120/160/200):   84% →  88% → 100% → 100% → 100%
 Run 9  (ticks 40/80/120/160/200):   62% →  87% → 100% →  96% → 100%
 ```
 
-In all three replications, cooperation reaches 100% by tick 120 and remains stable thereafter (modulo a single 96% tick in Run 9). Fine-grained behavior between checkpoints is not captured; an earlier 100-tick run (separately reported as a development iteration) showed a deeper transient dip (down to 39% at tick 60) before recovering. The dip becomes shallower at lower granularity in the 300/200t runs, consistent with averaging effects.
+In all three replications, cooperation reaches 100% by tick 120 and remains stable thereafter (modulo a single 96% tick in Run 9). Fine-grained behavior between checkpoints is not captured; a shorter 100-tick development run (Run 6 in Appendix C) showed a deeper transient dip (down to 39% at tick 60) before recovering. The dip becomes shallower at lower granularity in the 300/200t runs, consistent with averaging effects.
 
 We interpret three phases:
 
@@ -244,6 +247,8 @@ Nowak, M. A., & Sigmund, K. (1998). Evolution of indirect reciprocity by image s
 
 Park, J. S., O'Brien, J. C., Cai, C. J., Morris, M. R., Liang, P., & Bernstein, M. S. (2023). Generative agents: Interactive simulacra of human behavior. In *Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology* (UIST '23).
 
+Piao, J., Yan, Y., Zhang, J., Li, N., Yan, J., Lan, X., Lu, Z., Zheng, Z., Wang, J. Y., Zhou, D., Gao, C., Xu, F., Zhang, F., Rong, K., Su, J., & Li, Y. (2025). AgentSociety: Large-scale simulation of LLM-driven generative agents advances understanding of human behaviors and society. arXiv preprint arXiv:2502.08691.
+
 Wu, Q., Bansal, G., Zhang, J., Wu, Y., Zhang, S., Zhu, E., Li, B., Jiang, L., Zhang, X., & Wang, C. (2023). AutoGen: Enabling next-gen LLM applications via multi-agent conversation framework. arXiv preprint arXiv:2308.08155.
 
 Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023). ReAct: Synergizing reasoning and acting in language models. In *International Conference on Learning Representations* (ICLR).
@@ -302,4 +307,4 @@ We document these failures because the surface symptoms ("cooperation collapses 
 
 ---
 
-*Independent research, no funding. Code at https://github.com/heocoi/atom-donor-game. Comments welcome.*
+*Independent research. Code: github.com/heocoi/atom-donor-game*
