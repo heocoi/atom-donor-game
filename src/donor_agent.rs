@@ -121,7 +121,7 @@ impl DonorAgent {
 
     /// Reinforce Hebbian weight based on social correctness.
     /// social_correct: did we make the right call given recipient's reputation?
-    pub fn reinforce(&mut self, action: &Action, recipient_rep: f32) {
+    pub fn reinforce(&mut self, action: &Action, recipient_rep: f32, div_protect: bool) {
         let social_correct: f32 = match action {
             Action::Donate =>  recipient_rep,   // donate to cooperator = good, to defector = bad
             Action::Defect => -recipient_rep,   // refuse defector = good, exploit cooperator = bad
@@ -131,7 +131,16 @@ impl DonorAgent {
                      else { 0.002 }; // unknown rep: tiny nudge toward cooperation
         let idx = match action {
             Action::Donate => {
-                if self.strategy_weights[0] > self.strategy_weights[1] { 0 } else { 1 }
+                if div_protect {
+                    // Diversity-preserving credit: reward reciprocate (0) when donating to
+                    // a KNOWN cooperator (it conditions on reputation), generous (1) only for
+                    // unknown/neutral recipients. Breaks the rich-get-richer drift where
+                    // generous (higher initial weight) always wins credit → monoculture.
+                    if recipient_rep > 0.1 { 0 } else { 1 }
+                } else {
+                    // v7 baseline: credit whichever cooperative weight is currently larger.
+                    if self.strategy_weights[0] > self.strategy_weights[1] { 0 } else { 1 }
+                }
             }
             Action::Defect => 2,
         };

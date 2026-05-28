@@ -1,0 +1,7 @@
+# v8 divprotect (reinforce-level diversity) sweep 2026-05-28 21:43 repro=energy reps=3
+SWEEP repro=energy rein=divprotect frac=0.20 rep=1 coop=98.8 pop=22 gen=4 s2=244 wdiv=0.0375 wmean=[0.907,0.043,0.050] wstd=[0.017,0.018,0.017]
+SWEEP repro=energy rein=divprotect frac=0.20 rep=2 coop=96.0 pop=38 gen=5 s2=330 wdiv=0.0534 wmean=[0.904,0.051,0.045] wstd=[0.029,0.026,0.018]
+SWEEP repro=energy rein=divprotect frac=0.20 rep=3 coop=96.3 pop=31 gen=4 s2=292 wdiv=0.0501 wmean=[0.916,0.043,0.042] wstd=[0.030,0.017,0.022]
+SWEEP repro=energy rein=divprotect frac=0.33 rep=1 coop=0.0 pop=1 gen=1 s2=3 wdiv=0.0000 wmean=[0.135,0.113,0.753] wstd=[0.000,0.000,0.000]
+SWEEP repro=energy rein=divprotect frac=0.33 rep=2 coop=0.0 pop=1 gen=0 s2=8 wdiv=0.0000 wmean=[0.188,0.136,0.676] wstd=[0.000,0.000,0.000]
+SWEEP repro=energy rein=divprotect frac=0.33 rep=3 coop=0.0 pop=1 gen=0 s2=10 wdiv=0.0000 wmean=[0.210,0.146,0.644] wstd=[0.000,0.000,0.000]

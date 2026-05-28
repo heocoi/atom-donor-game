@@ -1,0 +1,14 @@
+# invasion-robustness sweep 2026-05-28 20:30
+# ticks=200 agents=20 reps=3 fracs=0.20 0.33 0.50 0.67
+SWEEP frac=0.20 rep=1 coop=99.7 pop=37 gen=5 s2=214 wdiv=0.0527 wmean=[0.033,0.907,0.061] wstd=[0.018,0.033,0.023]
+SWEEP frac=0.20 rep=2 coop=100.0 pop=30 gen=5 s2=168 wdiv=0.0395 wmean=[0.026,0.928,0.046] wstd=[0.013,0.021,0.020]
+SWEEP frac=0.20 rep=3 coop=99.6 pop=23 gen=5 s2=157 wdiv=0.0370 wmean=[0.035,0.912,0.053] wstd=[0.016,0.020,0.014]
+SWEEP frac=0.33 rep=1 coop=100.0 pop=9 gen=3 s2=154 wdiv=0.0366 wmean=[0.028,0.868,0.103] wstd=[0.011,0.022,0.014]
+SWEEP frac=0.33 rep=2 coop=100.0 pop=8 gen=4 s2=101 wdiv=0.0505 wmean=[0.049,0.884,0.067] wstd=[0.019,0.029,0.015]
+SWEEP frac=0.33 rep=3 coop=100.0 pop=18 gen=6 s2=165 wdiv=0.0511 wmean=[0.035,0.884,0.081] wstd=[0.015,0.029,0.022]
+SWEEP frac=0.50 rep=1 coop=0.0 pop=1 gen=0 s2=0 wdiv=0.0000 wmean=[0.020,0.020,0.961] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.50 rep=2 coop=0.0 pop=1 gen=0 s2=5 wdiv=0.0000 wmean=[0.168,0.216,0.616] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.50 rep=3 coop=0.0 pop=1 gen=0 s2=4 wdiv=0.0000 wmean=[0.153,0.235,0.612] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.67 rep=1 coop=0.0 pop=1 gen=0 s2=2 wdiv=0.0000 wmean=[0.126,0.160,0.714] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.67 rep=2 coop=0.0 pop=1 gen=0 s2=4 wdiv=0.0000 wmean=[0.123,0.165,0.712] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.67 rep=3 coop=0.0 pop=0 gen=0 s2=0 wdiv=0.0000 wmean=[0.000,0.000,0.000] wstd=[0.000,0.000,0.000]

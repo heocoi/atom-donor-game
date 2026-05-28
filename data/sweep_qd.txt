@@ -1,0 +1,13 @@
+# v8 QD (niche-balanced) sweep 2026-05-28 21:20 ticks=200 agents=20 reps=3
+SWEEP repro=qd frac=0.33 rep=1 coop=0.0 pop=1 gen=1 s2=9 wdiv=0.0000 wmean=[0.111,0.209,0.681] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.33 rep=2 coop=0.0 pop=1 gen=1 s2=11 wdiv=0.0000 wmean=[0.109,0.236,0.655] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.33 rep=3 coop=0.0 pop=1 gen=0 s2=11 wdiv=0.0000 wmean=[0.074,0.170,0.756] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.40 rep=1 coop=0.0 pop=1 gen=0 s2=5 wdiv=0.0000 wmean=[0.098,0.183,0.719] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.40 rep=2 coop=0.0 pop=1 gen=0 s2=6 wdiv=0.0000 wmean=[0.118,0.192,0.691] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.40 rep=3 coop=0.0 pop=1 gen=0 s2=7 wdiv=0.0000 wmean=[0.120,0.231,0.649] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.45 rep=1 coop=0.0 pop=1 gen=0 s2=7 wdiv=0.0000 wmean=[0.111,0.170,0.719] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.45 rep=2 coop=0.0 pop=1 gen=0 s2=6 wdiv=0.0000 wmean=[0.124,0.241,0.634] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.45 rep=3 coop=0.0 pop=1 gen=0 s2=0 wdiv=0.0000 wmean=[0.019,0.019,0.962] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.50 rep=1 coop=0.0 pop=0 gen=0 s2=0 wdiv=0.0000 wmean=[0.000,0.000,0.000] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.50 rep=2 coop=0.0 pop=1 gen=0 s2=5 wdiv=0.0000 wmean=[0.112,0.173,0.715] wstd=[0.000,0.000,0.000]
+SWEEP repro=qd frac=0.50 rep=3 coop=0.0 pop=1 gen=0 s2=6 wdiv=0.0000 wmean=[0.152,0.218,0.631] wstd=[0.000,0.000,0.000]

@@ -1,0 +1,7 @@
+# cliff-localization sweep 2026-05-28 21:02 ticks=200 agents=20 reps=3
+SWEEP frac=0.40 rep=1 coop=0.0 pop=1 gen=0 s2=6 wdiv=0.0000 wmean=[0.121,0.198,0.681] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.40 rep=2 coop=0.0 pop=1 gen=0 s2=0 wdiv=0.0000 wmean=[0.018,0.018,0.963] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.40 rep=3 coop=0.0 pop=1 gen=0 s2=4 wdiv=0.0000 wmean=[0.111,0.164,0.725] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.45 rep=1 coop=0.0 pop=1 gen=0 s2=7 wdiv=0.0000 wmean=[0.130,0.238,0.632] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.45 rep=2 coop=0.0 pop=1 gen=0 s2=5 wdiv=0.0000 wmean=[0.168,0.238,0.594] wstd=[0.000,0.000,0.000]
+SWEEP frac=0.45 rep=3 coop=0.0 pop=1 gen=0 s2=8 wdiv=0.0000 wmean=[0.117,0.168,0.715] wstd=[0.000,0.000,0.000]
